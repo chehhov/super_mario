@@ -1,6 +1,6 @@
 #include "movable.hpp"
 
-using biv::Movable;
+using lae::Movable;
 
 Movable::Movable(
 	const Coord& top_left, 

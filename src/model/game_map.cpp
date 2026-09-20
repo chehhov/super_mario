@@ -1,6 +1,6 @@
 #include "game_map.hpp"
 
-using biv::GameMap;
+using lae::GameMap;
 
 GameMap::GameMap(const int height, const int width) 
 	: height(height), width(width) {}

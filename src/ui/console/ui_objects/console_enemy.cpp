@@ -1,6 +1,6 @@
 #include "console_enemy.hpp"
 
-using biv::ConsoleEnemy;
+using lae::ConsoleEnemy;
 
 ConsoleEnemy::ConsoleEnemy(const Coord& top_left, const int width, const int height) 
 	: Enemy(top_left, width, height) {}

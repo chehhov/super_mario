@@ -1,6 +1,6 @@
 #pragma once
 
-namespace biv {
+namespace lae {
 	enum class UserInput {
 		EXIT,
 		MAP_LEFT,

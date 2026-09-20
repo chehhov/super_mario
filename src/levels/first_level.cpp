@@ -2,16 +2,16 @@
 
 #include "second_level.hpp"
 
-using biv::FirstLevel;
+using lae::FirstLevel;
 
 FirstLevel::FirstLevel(UIFactory* ui_factory) : GameLevel(ui_factory) {
 	init_data();
 }
 
-biv::GameLevel* FirstLevel::get_next() {
+lae::GameLevel* FirstLevel::get_next() {
 	if (!next) {
 		clear_data();
-		next = new biv::SecondLevel(ui_factory);
+		next = new lae::SecondLevel(ui_factory);
 	}
 	return next;
 }

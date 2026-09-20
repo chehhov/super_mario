@@ -2,8 +2,8 @@
 
 #include <windows.h>
 
-using biv::UserInput;
-using biv::WindowsKeyBoard;
+using lae::UserInput;
+using lae::WindowsKeyBoard;
 
 UserInput WindowsKeyBoard::get_user_input() {
 	if (GetKeyState('A') < 0) {

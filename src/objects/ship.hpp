@@ -2,7 +2,7 @@
 
 #include "rect_map_movable_adapter.hpp"
 
-namespace biv {
+namespace lae {
 	class Ship : public RectMapMovableAdapter {
 		public:
 			Ship(
