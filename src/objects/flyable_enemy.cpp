@@ -34,6 +34,12 @@ void FlyableEnemy::process_mario_collision(Collisionable* mario) noexcept {
 void FlyableEnemy::process_vertical_static_collision(Rect* obj) noexcept {}
 
 void FlyableEnemy::move_vertically() noexcept {
-    vspeed = 0;
+	if (this->is_active() == true) {
+		vspeed = 0;
+	}
+	else {
+		vspeed = 1;
+		top_left.y += vspeed;
+	}
 }
 
