@@ -100,6 +100,7 @@ int main() {
 		game.check_horizontally_static_collisions();
 		
 		game.move_objs_vertically();
+		game.check_mario_platform_collision();
 		game.check_mario_collision();
 		game.check_vertically_static_collisions();
 		

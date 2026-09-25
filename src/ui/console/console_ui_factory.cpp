@@ -10,6 +10,7 @@ void ConsoleUIFactory::clear_data() {
 	delete mario;
 	mario = nullptr;
 	boxes.clear();
+	moving_platforms.clear();
 	full_boxes.clear();
 	ships.clear();
 	enemies.clear();
@@ -26,6 +27,17 @@ void ConsoleUIFactory::create_box(
 	game->add_map_movable(box);
 	game->add_static_obj(box);
 	game_map->add_obj(box);
+}
+
+void ConsoleUIFactory::create_moving_platform(
+	const Coord& top_left, const int width, const int height
+) {
+	ConsoleMovingPlatform* moving_platform = new ConsoleMovingPlatform(top_left, width, height);
+	moving_platforms.push_back(moving_platform);
+	game->add_map_movable(moving_platform);
+	game->add_movable(moving_platform);
+	game->add_collisionable(moving_platform);
+	game_map->add_obj(moving_platform);
 }
 
 void ConsoleUIFactory::create_enemy(

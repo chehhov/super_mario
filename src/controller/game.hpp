@@ -38,6 +38,7 @@ namespace lae {
 			void check_mario_collision();
 			bool check_static_collisions(Collisionable* obj) const noexcept;
 			void check_vertically_static_collisions() noexcept;
+			void check_mario_platform_collision() noexcept;
 			
 			void finish() noexcept;
 			

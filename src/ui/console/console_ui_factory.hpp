@@ -9,6 +9,7 @@
 #include "console_mario.hpp"
 #include "console_money.hpp"
 #include "console_ship.hpp"
+#include "console_moving_platform.hpp" 
 #include "ui_factory.hpp"
 
 namespace lae {
@@ -23,12 +24,16 @@ namespace lae {
 			std::vector<ConsoleFlyableEnemy*> flyable_enemies;
 			std::vector<ConsoleJumpingEnemy*> jumping_enemies;
 			std::vector<ConsoleMoney*> moneys;
+			std::vector<ConsoleMovingPlatform*> moving_platforms;
 
 		public:
 			ConsoleUIFactory(Game* game);
 			
 			void clear_data() override;
 			void create_box(
+				const Coord& top_left, const int width, const int height
+			) override;
+			void create_moving_platform(
 				const Coord& top_left, const int width, const int height
 			) override;
 			void create_enemy(

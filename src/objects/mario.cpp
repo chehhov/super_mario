@@ -1,6 +1,7 @@
 #include "mario.hpp"
 
 #include "map_movable.hpp"
+#include "moving_platform.hpp"
 
 using lae::Mario;
 
@@ -39,4 +40,22 @@ void Mario::process_vertical_static_collision(Rect* obj) noexcept {
 		top_left.y -= vspeed;
 	}
 	vspeed = 0;
+}
+
+void Mario::process_vertical_platform_collision(MovingPlatform* obj) noexcept {
+    if (vspeed > 0) {
+        // Марио упал сверху
+        top_left.y -= vspeed;
+        vspeed = 0;
+
+        bool is_moving_platform = (dynamic_cast<MovingPlatform*>(obj) != nullptr);
+
+        if (is_moving_platform) {
+            float y_speed_of_platform = obj->get_speed().v;
+            float x_speed_of_platform = obj->get_speed().h;
+
+            top_left.y += y_speed_of_platform;
+            top_left.x += x_speed_of_platform;
+        }
+    }
 }

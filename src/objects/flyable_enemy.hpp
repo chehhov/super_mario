@@ -17,6 +17,7 @@ namespace lae {
 			void process_horizontal_static_collision(Rect*) noexcept override;
 			void process_mario_collision(Collisionable*) noexcept override;
 			void process_vertical_static_collision(Rect*) noexcept override;
+
 			void move_vertically() noexcept override;
 	};
 }

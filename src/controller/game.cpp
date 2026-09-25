@@ -1,6 +1,7 @@
 #include "game.hpp"
 
 #include <algorithm>
+#include "moving_platform.hpp"
 
 using lae::Game;
 
@@ -53,6 +54,17 @@ void Game::check_mario_collision() {
 		}
 	}
 }
+
+void Game::check_mario_platform_collision() noexcept {
+    for (Movable* obj : movable_objs) {
+        MovingPlatform* platform = dynamic_cast<MovingPlatform*>(obj);
+        
+        if (platform != nullptr && platform->has_collision(mario)) {
+            mario->process_vertical_platform_collision(platform);
+        }
+    }
+}
+
 
 bool Game::check_static_collisions(Collisionable* obj) const noexcept {
 	for (Rect* static_obj: static_objs) {
