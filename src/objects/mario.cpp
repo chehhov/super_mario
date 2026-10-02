@@ -42,20 +42,16 @@ void Mario::process_vertical_static_collision(Rect* obj) noexcept {
 	vspeed = 0;
 }
 
-void Mario::process_vertical_platform_collision(MovingPlatform* obj) noexcept {
+void Mario::process_vertical_object_moving_collisionable(MovingCollisionable* obj) noexcept {
     if (vspeed > 0) {
-        // Марио упал сверху
         top_left.y -= vspeed;
         vspeed = 0;
+        
+        float y_speed_of_object= obj->get_speed().v;
+        float x_speed_of_object = obj->get_speed().h;
 
-        bool is_moving_platform = (dynamic_cast<MovingPlatform*>(obj) != nullptr);
-
-        if (is_moving_platform) {
-            float y_speed_of_platform = obj->get_speed().v;
-            float x_speed_of_platform = obj->get_speed().h;
-
-            top_left.y += y_speed_of_platform;
-            top_left.x += x_speed_of_platform;
-        }
+        top_left.y += y_speed_of_object;
+        top_left.x += x_speed_of_object;
+        
     }
 }

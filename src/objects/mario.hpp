@@ -4,7 +4,7 @@
 #include "movable.hpp"
 #include "rect.hpp"
 #include "speed.hpp"
-#include "moving_platform.hpp" 
+#include "moving_collisionable.hpp" 
 
 
 namespace lae {
@@ -21,7 +21,7 @@ namespace lae {
 			void process_horizontal_static_collision(Rect*) noexcept override;
 			void process_mario_collision(Collisionable*) noexcept override;
 			void process_vertical_static_collision(Rect*) noexcept override;
-			void process_vertical_platform_collision(MovingPlatform* obj) noexcept;
+			void process_vertical_object_moving_collisionable(MovingCollisionable* obj) noexcept;
 		
 	};
 }

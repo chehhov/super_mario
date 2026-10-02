@@ -9,5 +9,7 @@ namespace lae {
 			ConsoleMovingPlatform(const Coord& top_left, const int width, const int height);
 
 			char get_brush() const noexcept override;
+			void process_mario_collision(Collisionable* mario) noexcept override;
+			void process_vertical_static_collision(Rect* obj) noexcept override;
 	};
 }

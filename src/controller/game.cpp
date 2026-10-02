@@ -1,7 +1,6 @@
 #include "game.hpp"
 
 #include <algorithm>
-#include "moving_platform.hpp"
 
 using lae::Game;
 
@@ -25,6 +24,10 @@ void Game::add_movable(Movable* obj) {
 
 void Game::add_static_obj(Rect* obj) {
 	static_objs.push_back(obj);
+}
+
+void Game::add_movable_collisionable(MovingCollisionable* obj) {
+	moving_collisionable_objs.push_back(obj);
 }
 
 void Game::check_horizontally_static_collisions() noexcept {
@@ -55,12 +58,10 @@ void Game::check_mario_collision() {
 	}
 }
 
-void Game::check_mario_platform_collision() noexcept {
-    for (Movable* obj : movable_objs) {
-        MovingPlatform* platform = dynamic_cast<MovingPlatform*>(obj);
-        
-        if (platform != nullptr && platform->has_collision(mario)) {
-            mario->process_vertical_platform_collision(platform);
+void Game::check_movable_collisionable() noexcept {
+    for (MovingCollisionable* obj : moving_collisionable_objs) {
+        if (obj->has_collision(mario)) {
+            mario->process_vertical_object_moving_collisionable(obj);
         }
     }
 }
@@ -141,6 +142,10 @@ void Game::remove_mario() noexcept {
 void Game::remove_movable(Movable* obj) {
 	remove_obj(movable_objs, obj);
 }
+void Game::remove_moving_collisionable(MovingCollisionable* obj) {
+	remove_obj(moving_collisionable_objs, obj);
+}
+
 
 void Game::remove_objs() {
 	collisionable_objs.clear();

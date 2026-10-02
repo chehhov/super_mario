@@ -37,6 +37,7 @@ void ConsoleUIFactory::create_moving_platform(
 	game->add_map_movable(moving_platform);
 	game->add_movable(moving_platform);
 	game->add_collisionable(moving_platform);
+	game->add_movable_collisionable(moving_platform);
 	game_map->add_obj(moving_platform);
 }
 
@@ -59,6 +60,7 @@ void ConsoleUIFactory::create_flyable_enemy(
 	game->add_map_movable(flyable_enemy);
 	game->add_movable(flyable_enemy);
 	game->add_collisionable(flyable_enemy);
+	game->add_movable_collisionable(flyable_enemy);
 	game_map->add_obj(flyable_enemy);
 }
 

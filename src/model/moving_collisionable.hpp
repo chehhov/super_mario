@@ -1,17 +1,18 @@
 #pragma once
 
-#include "moving_collisionable.hpp"
+#include "collisionable.hpp"
+#include "movable.hpp"
 #include "rect.hpp"
 #include "rect_map_movable_adapter.hpp"
 #include "speed.hpp"
 
 namespace lae {
-	class MovingPlatform : virtual public RectMapMovableAdapter, virtual public MovingCollisionable{
+	class MovingCollisionable :public virtual RectMapMovableAdapter, public virtual Movable, public virtual Collisionable {
 		private:
 			float period;
 			int counter;
 		public:
-			MovingPlatform(const Coord& top_left, const int width, const int height);
+			MovingCollisionable(const Coord& top_left, const int width, const int height);
 
 			Rect get_rect() const noexcept override;
 			Speed get_speed() const noexcept override;
