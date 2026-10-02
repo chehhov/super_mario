@@ -6,7 +6,7 @@
 namespace lae {
     class FlyableEnemy : public MovingCollisionable {
         public:
-            FlyableEnemy(const Coord& top_left, const int width, const int height);
+            FlyableEnemy(const Coord& top_left, const int width, const int height, float period = 1000.0f);
 
             Rect get_rect() const noexcept override;
             Speed get_speed() const noexcept override;

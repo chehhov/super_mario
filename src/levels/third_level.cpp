@@ -20,6 +20,10 @@ lae::GameLevel* ThirdLevel::get_next() {
 void ThirdLevel::init_data() {
 	ui_factory->create_mario({20, 10}, 3, 3);
 	
+    ui_factory->create_ship({0, 10}, 3, 2);
+    ui_factory->create_ship({5, 15}, 3, 2);
+    ui_factory->create_ship({10, 20}, 3, 2);
+
 	ui_factory->create_ship({20, 25}, 3, 2);
     ui_factory->create_ship({30, 20}, 3, 2);
     ui_factory->create_ship({40, 25}, 3, 2);
@@ -49,6 +53,7 @@ void ThirdLevel::init_data() {
 
     ui_factory->create_flyable_enemy({185, 15}, 3, 2);
     ui_factory->create_flyable_enemy({207, 18}, 3, 2);
+    ui_factory->create_flyable_enemy({0, 7}, 3, 2);
 
 
     ui_factory->create_ship({175, 15}, 10, 7);

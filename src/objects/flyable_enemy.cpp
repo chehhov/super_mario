@@ -3,11 +3,12 @@
 
 using lae::FlyableEnemy;
 
-FlyableEnemy::FlyableEnemy(const Coord& top_left, const int width, const int height) 
+FlyableEnemy::FlyableEnemy(const Coord& top_left, const int width, const int height, float period) 
     : RectMapMovableAdapter(top_left, width, height),
       MovingCollisionable(top_left, width, height) {
     vspeed = 0;
     hspeed = 0.2;
+	this->period = period;
 }
 
 lae::Rect FlyableEnemy::get_rect() const noexcept {

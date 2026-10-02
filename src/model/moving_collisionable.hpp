@@ -9,8 +9,9 @@
 namespace lae {
 	class MovingCollisionable :public virtual RectMapMovableAdapter, public virtual Movable, public virtual Collisionable {
 		private:
-			float period;
 			int counter;
+		protected:
+			float period;
 		public:
 			MovingCollisionable(const Coord& top_left, const int width, const int height);
 
